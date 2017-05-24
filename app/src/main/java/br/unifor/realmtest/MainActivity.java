@@ -37,7 +37,11 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 if(editTextName.length() != 0 && editTextAge.length() != 0){
-                    persistData(realm);
+
+                    //persistDataModeOne();
+
+                    persistDataModeTwo();
+
                     startActivity(new Intent(MainActivity.this, SecondActivity.class));
                 }
                 else{
@@ -55,7 +59,7 @@ public class MainActivity extends AppCompatActivity{
         realm.close();
     }
 
-    public void persistData(Realm realm){
+    public void persistDataModeOne(){
 
         realm.executeTransaction(new Realm.Transaction() {
             @Override
@@ -66,7 +70,15 @@ public class MainActivity extends AppCompatActivity{
                 person.setAge(Integer.parseInt(editTextAge.getText().toString()));
             }
         });
+    }
 
+    public void persistDataModeTwo(){
+
+        Person person = new Person(id, editTextName.getText().toString(), Integer.parseInt(editTextAge.getText().toString()));
+
+        realm.beginTransaction();
+        realm.insert(person);
+        realm.commitTransaction();
     }
 
 

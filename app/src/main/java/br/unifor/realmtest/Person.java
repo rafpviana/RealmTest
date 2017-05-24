@@ -7,6 +7,7 @@ import io.realm.RealmObject;
  */
 
 public class Person extends RealmObject {
+
     private long id;
     private String name;
     private int age;
