@@ -1,13 +1,11 @@
 package br.unifor.realmtest;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import io.realm.Realm;
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity{
                     startActivity(new Intent(MainActivity.this, SecondActivity.class));
                 }
                 else{
-                    Toast.makeText(MainActivity.this, "Dados inválidos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Invalid Data", Toast.LENGTH_SHORT).show();
                 }
             }
         });
